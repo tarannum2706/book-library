@@ -1,0 +1,12 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="libraries">
+  <% @libraries.each do |library| %>
+    <%= render library %>
+    <% if current_user && current_user.librarian %>
+    <p>
+      <%= link_to "Show", library %>
+    </p>
+    <% end %>
+  <% end %>
+</div>

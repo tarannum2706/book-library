@@ -1,0 +1,56 @@
+<p style="color: green"><%= notice %></p>
+<% if current_user && current_user.librarian %>
+<h1>Book Records</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Student name</th>
+      <th>Student email</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Due date</th>
+      <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <div id="students">
+      <% @students.each do |student| %>
+     <tr>
+      <td><%= student.name%></td>
+      <td><%= student.email%></td>
+        <td><%= student.book%></td>
+          <td><%= student.author%></td>
+      <td><%= student.created_at = Date.today%></td>
+ <td>
+      <%= button_to "Return", student, method: :delete,:class => 'btn btn-outline-danger btn-sm' %>
+</td>
+     </tr>
+    <% end %>
+</tbody>
+</table>
+<% else %>
+<h1>List Of Your Book</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Due date</th>
+      <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <div id="students">
+      <% @students.each do |student| %>
+     <tr>
+        <td><%= student.book%></td>
+          <td><%= student.author%></td>
+      <td><%= student.created_at = Date.today%></td>
+ <td>
+      <%= link_to "view", student,:class => 'btn btn-outline-primary btn-sm' %>
+</td>
+     </tr>
+    <% end %>
+</tbody>
+</table>
+<% end %>

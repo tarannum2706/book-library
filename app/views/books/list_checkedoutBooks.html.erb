@@ -1,0 +1,24 @@
+<h1>List Of Checked Out Books</h1>
+<br/>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Available</th>
+      </tr>
+  </thead>
+  <tbody>
+  <% @books.each do |book| %>
+     <tr>
+      <td><%= book.title%></td>
+      <td><%= book.author%></td>
+      <td> <%= if book.available == true
+               "Yes"
+             else
+             "No"
+           end  %></td>
+     </tr>
+    <% end %>
+</tbody>
+</table>

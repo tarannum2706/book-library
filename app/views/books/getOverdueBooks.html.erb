@@ -1,0 +1,22 @@
+<h1> Overdue Books and Fine</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+     <td><%= Student.find[:student_id].name %></td>
+     <td><%= Book.fine[:book_id].title %></td>
+     <td><%= Book.find[:book_id].author %></td>
+     </tr>
+    </tbody>
+  </table>
+  <% if !current_user.librarian.nil? %>
+	<%= link_to 'Back', libraries_path %>
+<% else %>
+	<%= link_to 'Back', students_path %>
+<% end %>

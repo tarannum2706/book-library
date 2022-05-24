@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @library %>
+<% if current_user && current_user.librarian %>
+<div>
+  <%= link_to "Edit", edit_library_path(@library) %> |
+  <%= link_to "Back", libraries_path %>
+
+  <%= button_to "Destroy", @library, method: :delete %>
+</div>
+<% end %>

@@ -1,0 +1,20 @@
+<br><br>
+<h1>Welcome to The Green Library</h1>
+<br>
+<% if current_user %>
+<%= link_to "View Books",books_path,:class => "btn btn-success"  %>
+<br>
+<br>
+<%= link_to "View Library info ",libraries_path,:class => "btn btn-success"  %>
+<br>
+<br>
+<% if current_user && current_user.librarian %>
+<%= link_to "View Book Record ",students_path,:class => "btn btn-success"  %>
+<% end %>
+<% end %>
+<br/><br/><br/></br>
+<% if current_user && current_user.librarian %>
+<h3>Librarian Function</h3>
+<%= link_to "Add new book", new_book_path %> |
+<%= link_to "Add new library", new_library_path %>
+<% end %>
